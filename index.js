@@ -48,16 +48,31 @@ class Division {
     }
 
     getStaff() {
-        console.log({ staff: this.staff })
+        return this.staff
+    }
+
+    addStaff(employee) {
+        this.staff.push(employee)
     }
 }
 
 const naqiuddin = new Employee("Naqiuddin", 29, "Developer", "Digital Transformation");
 const arthur = new Employee("Arthur", 6, "Cat Developer", "Digital Transformation");
+const thomas = new Employee("Thomas", 5, "Cat Developer", "Digital Transformation");
+
+const yeen = new Employee("Farahin", 29, "Senior Executive", "Human Capital");
+const finn = new Employee("Finn", 3, "Cat Executive", "Human Capital");
 
 const it = new Division("Information Technology", "Bangsar, MY", [naqiuddin, arthur])
+const hr = new Division("Human Resource", "Cyberjaya, MY", [yeen, finn])
 
+it.addStaff(thomas)
 // arthur.getEmployee();
 
-it.getStaff();
+// it.getInformation();
+const hr_staff = hr.getStaff();
+
+const staff_farahin = hr_staff.filter((employee) => employee.name == 'Farahin')
+// console.log(hr_staff[0]);
+console.log(staff_farahin);
 
